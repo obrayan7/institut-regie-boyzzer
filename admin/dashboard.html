@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tableau de bord — Régie Boyzz'er Institut</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+</head>
+<body class="page-admin">
+
+<div class="admin-shell">
+  <aside class="admin-side">
+    <div class="marque">
+      <img src="../assets/img/logo.png" alt="Logo">
+      <span class="txt"><strong>Régie Boyzz'er</strong><span>Administration</span></span>
+    </div>
+    <nav class="admin-nav">
+      <a href="#" data-vue="tableau-de-bord" class="actif">📊 Tableau de bord</a>
+      <a href="#" data-vue="inscriptions">📝 Inscriptions</a>
+      <a href="#" data-vue="formations">🎓 Formations</a>
+      <a href="#" data-vue="reservations">📅 Réservations</a>
+      <a href="#" data-vue="actualites">📰 Actualités</a>
+      <a href="#" data-vue="galerie">🖼 Galerie</a>
+      <a href="#" data-vue="temoignages">💬 Témoignages</a>
+      <a href="#" data-vue="messages">✉ Messages & newsletter</a>
+    </nav>
+    <div class="admin-deconnexion">
+      <a href="../index.html">🌐 Voir le site</a>
+      <a href="#" id="btn-deconnexion">🚪 Déconnexion</a>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+
+    <!-- ===================== TABLEAU DE BORD ===================== -->
+    <section class="vue-admin actif" id="vue-tableau-de-bord">
+      <div class="admin-entete">
+        <h1>Tableau de bord</h1>
+        <span class="badge-dore" id="date-jour"></span>
+      </div>
+      <div class="grille-stats">
+        <div class="carte-stat"><span class="label">Inscriptions</span><strong id="stat-inscriptions">0</strong></div>
+        <div class="carte-stat accent"><span class="label">Visiteurs (simulé)</span><strong id="stat-visiteurs">0</strong></div>
+        <div class="carte-stat"><span class="label">Réservations</span><strong id="stat-reservations">0</strong></div>
+        <div class="carte-stat"><span class="label">Services rendus</span><strong id="stat-services-rendus">0</strong></div>
+        <div class="carte-stat"><span class="label">Actualités publiées</span><strong id="stat-actus">0</strong></div>
+      </div>
+      <div class="grille-graphiques">
+        <div class="panneau">
+          <h3>Inscriptions & réservations par mois</h3>
+          <canvas id="graphique-mensuel" height="130"></canvas>
+        </div>
+        <div class="panneau">
+          <h3>Répartition par formation</h3>
+          <canvas id="graphique-formations" height="180"></canvas>
+        </div>
+      </div>
+      <div class="panneau">
+        <h3>Dernières inscriptions</h3>
+        <div class="panneau-scroll">
+          <table class="table-admin">
+            <thead><tr><th>N°</th><th>Nom</th><th>Formation</th><th>Date</th><th>Statut</th></tr></thead>
+            <tbody id="tbody-dernieres-inscriptions"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== INSCRIPTIONS ===================== -->
+    <section class="vue-admin" id="vue-inscriptions">
+      <div class="admin-entete"><h1>Gestion des inscriptions</h1></div>
+      <div class="barre-outils">
+        <input type="text" class="recherche-admin" id="recherche-inscriptions" placeholder="Rechercher un nom, numéro...">
+        <button class="btn btn-noir btn-sm" id="btn-export-inscriptions">⬇ Export PDF</button>
+      </div>
+      <div class="panneau panneau-scroll">
+        <table class="table-admin">
+          <thead><tr><th>N°</th><th>Nom & prénom</th><th>Téléphone</th><th>Formation</th><th>Session</th><th>Date</th><th>Statut</th><th>Actions</th></tr></thead>
+          <tbody id="tbody-inscriptions"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== FORMATIONS ===================== -->
+    <section class="vue-admin" id="vue-formations">
+      <div class="admin-entete">
+        <h1>Gestion des formations</h1>
+        <button class="btn btn-or btn-sm" id="btn-ajouter-formation">+ Ajouter une formation</button>
+      </div>
+      <div class="panneau panneau-scroll">
+        <table class="table-admin">
+          <thead><tr><th>Nom</th><th>Durée</th><th>Niveau</th><th>Statut</th><th>Actions</th></tr></thead>
+          <tbody id="tbody-formations"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== RESERVATIONS ===================== -->
+    <section class="vue-admin" id="vue-reservations">
+      <div class="admin-entete"><h1>Gestion des réservations</h1></div>
+      <div class="grille-stats">
+        <div class="carte-stat"><span class="label">Total réservations</span><strong id="stat-total-reservations">0</strong></div>
+        <div class="carte-stat accent"><span class="label">En attente</span><strong id="stat-attente-reservations">0</strong></div>
+        <div class="carte-stat"><span class="label">Services rendus</span><strong id="stat-rendus-reservations">0</strong></div>
+      </div>
+      <div class="panneau panneau-scroll">
+        <table class="table-admin">
+          <thead><tr><th>Nom</th><th>Sexe</th><th>Service(s)</th><th>Lieu</th><th>Téléphone</th><th>WhatsApp</th><th>Statut</th><th>Actions</th></tr></thead>
+          <tbody id="tbody-reservations"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== ACTUALITES ===================== -->
+    <section class="vue-admin" id="vue-actualites">
+      <div class="admin-entete">
+        <h1>Gestion des actualités</h1>
+        <button class="btn btn-or btn-sm" id="btn-ajouter-actu">+ Ajouter un article</button>
+      </div>
+      <div class="panneau panneau-scroll">
+        <table class="table-admin">
+          <thead><tr><th>Titre</th><th>Date</th><th>Extrait</th><th>Actions</th></tr></thead>
+          <tbody id="tbody-actualites"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== GALERIE ===================== -->
+    <section class="vue-admin" id="vue-galerie">
+      <div class="admin-entete">
+        <h1>Gestion de la galerie</h1>
+        <button class="btn btn-or btn-sm" id="btn-ajouter-image">+ Ajouter une image</button>
+      </div>
+      <div class="panneau panneau-scroll">
+        <table class="table-admin">
+          <thead><tr><th>Aperçu</th><th>Titre</th><th>Album / catégorie</th><th>Actions</th></tr></thead>
+          <tbody id="tbody-galerie"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== TEMOIGNAGES ===================== -->
+    <section class="vue-admin" id="vue-temoignages">
+      <div class="admin-entete"><h1>Gestion des témoignages</h1></div>
+      <h3 style="font-size:.95rem; margin-bottom:.8rem;">En attente de validation</h3>
+      <div class="panneau panneau-scroll" style="margin-bottom:1.6rem;">
+        <table class="table-admin">
+          <thead><tr><th>Nom</th><th>Formation</th><th>Avis</th><th>Actions</th></tr></thead>
+          <tbody id="tbody-temoignages-attente"></tbody>
+        </table>
+      </div>
+      <h3 style="font-size:.95rem; margin-bottom:.8rem;">Publiés</h3>
+      <div class="panneau panneau-scroll">
+        <table class="table-admin">
+          <thead><tr><th>Nom</th><th>Formation</th><th>Avis</th><th>Actions</th></tr></thead>
+          <tbody id="tbody-temoignages-publies"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== MESSAGES ===================== -->
+    <section class="vue-admin" id="vue-messages">
+      <div class="admin-entete"><h1>Messages de contact & newsletter</h1></div>
+      <h3 style="font-size:.95rem; margin-bottom:.8rem;">Messages reçus</h3>
+      <div class="panneau panneau-scroll" style="margin-bottom:1.6rem;">
+        <table class="table-admin">
+          <thead><tr><th>Nom</th><th>Téléphone</th><th>Sujet</th><th>Message</th><th>Date</th></tr></thead>
+          <tbody id="tbody-messages"></tbody>
+        </table>
+      </div>
+      <h3 style="font-size:.95rem; margin-bottom:.8rem;">Abonnés newsletter</h3>
+      <div class="panneau panneau-scroll">
+        <table class="table-admin">
+          <thead><tr><th>Email</th><th>Date d'inscription</th></tr></thead>
+          <tbody id="tbody-newsletter"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Modale générique de formulaire (formation / actualité / image) -->
+<div class="modale-fond" id="modale-admin">
+  <div class="modale" id="contenu-modale-admin"></div>
+</div>
+
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/admin.js"></script>
+</body>
+</html>

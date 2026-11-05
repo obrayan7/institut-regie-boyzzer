@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connexion administrateur — Régie Boyzz'er Institut</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="page-admin">
+
+<div class="ecran-connexion">
+  <div class="carte-connexion">
+    <img src="../assets/img/logo.png" alt="Logo">
+    <span class="eyebrow" style="justify-content:center;">Espace administrateur</span>
+    <h1>Régie Boyzz'er Institut</h1>
+    <p style="font-size:.85rem;">Connectez-vous pour gérer les inscriptions, réservations, formations et contenus du site.</p>
+    <div class="msg-etat erreur" id="msg-erreur" style="display:none;">Identifiants incorrects. Veuillez réessayer.</div>
+    <form id="form-connexion">
+      <div class="champ">
+        <label>Identifiant</label>
+        <input type="text" id="identifiant" autocomplete="username" required>
+      </div>
+      <div class="champ">
+        <label>Mot de passe</label>
+        <input type="password" id="mot-de-passe" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn btn-or btn-bloc">Se connecter</button>
+    </form>
+    <p style="font-size:.72rem; margin-top:1.4rem; color:var(--texte-doux);">
+      Démonstration — identifiant : <strong>admin</strong> / mot de passe : <strong>institut2026</strong><br>
+      En production, cette authentification doit être gérée par un serveur sécurisé (voir README.md).
+    </p>
+    <a href="../index.html" style="font-size:.78rem; display:block; margin-top:1rem; color:var(--texte-doux);">← Retour au site</a>
+  </div>
+</div>
+
+<script src="../assets/js/data.js"></script>
+<script>
+  // Démonstration front-end uniquement : à remplacer par une vraie authentification serveur.
+  const IDENTIFIANTS_DEMO = { utilisateur: "admin", motDePasse: "institut2026" };
+
+  document.getElementById("form-connexion").addEventListener("submit", function(e){
+    e.preventDefault();
+    const id = document.getElementById("identifiant").value.trim();
+    const mdp = document.getElementById("mot-de-passe").value;
+    if(id === IDENTIFIANTS_DEMO.utilisateur && mdp === IDENTIFIANTS_DEMO.motDePasse){
+      sessionStorage.setItem("rbi_admin_connecte", "1");
+      window.location.href = "dashboard.html";
+    } else {
+      document.getElementById("msg-erreur").style.display = "block";
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galerie — Régie Boyzz'er Institut</title>
+<meta name="description" content="Découvrez en images la vie de l'institut : salle de formation, étudiants, avant/après, diplômés, ateliers et remises de certificats.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="entete solide">
+  <div class="container">
+    <a href="index.html" class="marque">
+      <img src="assets/img/logo.png" alt="Logo Régie Boyzz'er Institut">
+      <span class="txt"><strong>Régie Boyzz'er</strong><span>Institut</span></span>
+    </a>
+    <nav class="nav-principale">
+      <a href="index.html">Accueil</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="formations.html">Nos formations</a>
+      <a href="galerie.html" class="actif">Galerie</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="temoignages.html">Témoignages / FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="entete-actions">
+      <a href="reservation.html" class="btn btn-ligne btn-sm">Réservation</a>
+      <a href="inscription.html" class="btn btn-or btn-sm">S'inscrire</a>
+      <button class="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-mobile">
+  <button class="fermer" aria-label="Fermer le menu">✕</button>
+  <a href="index.html">Accueil</a>
+  <a href="a-propos.html">À propos</a>
+  <a href="formations.html">Nos formations</a>
+  <a href="galerie.html">Galerie</a>
+  <a href="actualites.html">Actualités</a>
+  <a href="temoignages.html">Témoignages / FAQ</a>
+  <a href="contact.html">Contact</a>
+  <a href="reservation.html">Réservation</a>
+  <a href="inscription.html">S'inscrire</a>
+</div>
+
+<section class="bandeau-page">
+  <div class="container">
+    <span class="eyebrow">Galerie</span>
+    <h1 class="hero-titre" style="font-size:clamp(2rem,4vw,3rem);">La vie de l'institut en images</h1>
+    <div class="fil-ariane"><a href="index.html">Accueil</a> / Galerie</div>
+  </div>
+</section>
+
+<section class="section-blanc">
+  <div class="container">
+    <div class="filtres-galerie">
+      <button class="filtre-btn actif" data-filtre="tous">Tous</button>
+      <button class="filtre-btn" data-filtre="salle">Salle de formation</button>
+      <button class="filtre-btn" data-filtre="etudiants">Étudiants</button>
+      <button class="filtre-btn" data-filtre="avant-apres">Avant / Après</button>
+      <button class="filtre-btn" data-filtre="diplomes">Diplômés</button>
+      <button class="filtre-btn" data-filtre="ateliers">Ateliers</button>
+    </div>
+    <div class="grille-galerie" id="grille-galerie"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grille">
+      <div>
+        <div class="footer-marque"><img src="assets/img/logo.png" alt="Logo"><strong>Régie Boyzz'er Institut</strong></div>
+        <p>Institut de formation en coiffure et esthétique à Cotonou et Calavi.</p>
+      </div>
+      <div><h4>Navigation</h4><ul><li><a href="a-propos.html">À propos</a></li><li><a href="formations.html">Nos formations</a></li><li><a href="actualites.html">Actualités</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="inscription.html">Inscription</a></li><li><a href="reservation.html">Réservation</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>Cotonou & Calavi, Bénin</li><li>+229 00 00 00 00</li><li>contact@regieboyzzer.institut</li></ul></div>
+    </div>
+    <div class="footer-bas"><span>© 2026 Régie Boyzz'er Institut.</span><span>Tous droits réservés.</span></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/22900000000" target="_blank" class="whatsapp-flottant" aria-label="Contacter sur WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.6.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.1 7c-.2-.5-.5-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.1c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C3.7 14.6 3.2 13 3.2 12c0-4.8 3.9-8.7 8.8-8.7 4.8 0 8.7 3.9 8.7 8.7 0 4.9-3.9 8.8-8.7 8.8z"/></svg>
+</a>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  (function(){
+    const galerie = RB.lire("galerie", GALERIE_DEFAUT);
+    document.getElementById("grille-galerie").innerHTML = galerie.map(g => `
+      <div class="item-galerie ${g.degrade}" data-categorie="${g.categorie}">
+        <span class="etiquette">${g.titre}</span>
+      </div>`).join("");
+    // ré-attacher les filtres après rendu dynamique
+    const filtres = document.querySelectorAll(".filtre-btn");
+    const items = document.querySelectorAll(".item-galerie");
+    filtres.forEach(btn => btn.addEventListener("click", () => {
+      filtres.forEach(b => b.classList.remove("actif"));
+      btn.classList.add("actif");
+      const cat = btn.dataset.filtre;
+      items.forEach(item => item.style.display = (cat==="tous" || item.dataset.categorie===cat) ? "flex" : "none");
+    }));
+  })();
+</script>
+</body>
+</html>
